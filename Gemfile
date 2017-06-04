@@ -7,7 +7,10 @@ end
 
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
+gem 'dotenv-rails'
 gem 'jbuilder', '~> 2.5'
+gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'pg'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.0'
