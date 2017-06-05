@@ -7,6 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
+<<<<<<< HEAD
   <body class="hold-transition skin-blue layout-top-nav">
     <div class="wrapper">
 
@@ -183,7 +184,7 @@
                         <a href="#" class="btn btn-default btn-flat">Profile</a>
                       </div>
                       <div class="pull-right">
-                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                        <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-default btn-flat" %>
                       </div>
                     </li>
                   </ul>

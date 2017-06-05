@@ -1,44 +1,28 @@
 # README
 
-How to run?
-You need docker and docker-compose:
-https://docs.docker.com/engine/installation/
-https://docs.docker.com/compose/install/
+### How to run:
+Requirements:
+* [Docker](https://docs.docker.com/engine/installation/)
+* [Docker-Compose](https://docs.docker.com/compose/install/)
+* [Facebook Login](https://developers.facebook.com/apps)
+
+Place your Facebook_APP_ID and your Facebook_Secret_ID inside a file named .env,
+there is a '.env.sample' file that you can use as reference.
+
+You need also to set up the database.yml, there is a database-sample.yml that
+you can use as reference.
 
 To build the container:
-$ docker-compose build
+>$ docker-compose build
 
 First time? Then:
-$ docker-compose run web rails db:create
+>$ docker-compose run web rails db:create
 
 Then start the container:
-$ docker-compose up
+>$ docker-compose up
 
 To enter the container environment:
-$ docker-compose run web bash
+>$ docker-compose run web bash
 
 Remember that all the files created inside the container will belong to root.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-2.4.1
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
