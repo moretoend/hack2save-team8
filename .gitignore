@@ -22,7 +22,6 @@
 
 .byebug_history
 
-Gemfile.lock
 config/database.yml
 db/schema.rb
 
