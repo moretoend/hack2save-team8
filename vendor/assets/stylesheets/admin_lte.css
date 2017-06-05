@@ -1,0 +1,11 @@
+/*
+*= require admin_lte/bootstrap
+*= require admin_lte/bootstrap-theme
+*= require admin_lte/admin_lte
+*= require admin_lte/admin_lte-bootstrap-social
+*= require_directory ./admin_lte/fullcalendar
+*= require admin_lte/admin_lte-fullcalendar
+*= require admin_lte/select2
+*= require admin_lte/admin_lte-select2
+*= require admin_lte/_all-skins
+*/

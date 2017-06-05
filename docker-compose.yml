@@ -1,0 +1,13 @@
+version: '2'
+services:
+  web:
+    build: .
+    volumes:
+      - .:/var/www/hack2save-team8
+    ports:
+      - "3000:3000"
+    command: 'rails s -b 0.0.0.0 -p 3000'
+    links:
+      - db
+  db:
+    image: postgres
