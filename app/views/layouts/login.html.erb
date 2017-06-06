@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hack2save</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'login', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="hold-transition login-page">
+    <div class="login-box">
+      <div class="login-logo">
+        <a href=""><b>Hack2</b>SAVE</a>
+      </div>
+
+      <%= yield %>
+
+    </div>
+    <!-- /.login-box -->
+
+    <%= javascript_include_tag 'login', 'data-turbolinks-track': 'reload' %>
+
+    <script>
+      $(function () {
+        $('input').iCheck({
+          checkboxClass: 'icheckbox_square-blue',
+          radioClass: 'iradio_square-blue',
+          increaseArea: '20%' // optional
+        });
+      });
+    </script>
+  </body>
+</html>
