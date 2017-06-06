@@ -20,6 +20,7 @@ gem 'puma', '~> 3.7'
 gem 'simple_form'
 gem 'rails', '~> 5.1.0'
 gem 'sass-rails', '~> 5.0'
+gem 'simple_form'
 gem 'turbolinks', '~> 5'
 
 group :development, :test do
