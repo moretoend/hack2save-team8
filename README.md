@@ -7,7 +7,7 @@
 
 ### Clone the repository
 First, clone the repository:
-`$ git clone https://github.com/iujisato/webco2-backup.git`
+`$ git clone https://github.com/dfmoreto/hack2save-team8.git`
 
 then `cd` into `hack2save-team8`
 `$ cd hack2save-team8`
