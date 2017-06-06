@@ -1,6 +1,12 @@
 version: '2'
 services:
+  postgres:
+    image: 'postgres:9.5'
+    volumes:
+      - 'postgres:/var/lib/postgresql/data'
   web:
+    depends_on:
+      - 'postgres'
     build: .
     volumes:
       - .:/var/www/hack2save-team8
@@ -11,3 +17,6 @@ services:
       - db
   db:
     image: postgres
+
+volumes:
+  postgres:
