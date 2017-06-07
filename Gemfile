@@ -26,6 +26,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.6.0'
   gem 'selenium-webdriver'
+  gem 'bootstrap-sass', '~> 3.3.0'
   gem 'shoulda-matchers', '~> 3.1.1'
 end
 

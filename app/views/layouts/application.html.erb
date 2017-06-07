@@ -14,9 +14,9 @@
 
       <div class="content-wrapper">
         <div class="container">
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
-          <p class="alert"><%= flash[:error] %></p>
+          <%= content_tag :p, notice %>
+          <%= content_tag :p, alert %>
+          <%= content_tag :p, flash[:error] %>
 
           <%= yield %>
         </div>
