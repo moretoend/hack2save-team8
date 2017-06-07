@@ -11,4 +11,8 @@ RSpec.describe User, type: :model do
   it { is_expected.to have_db_column :gender }
   it { is_expected.to enumerize(:gender).in(:male, :female) }
 
+  it "must include Gravtastic" do
+    expect(User).to include Gravtastic
+  end
+
 end
