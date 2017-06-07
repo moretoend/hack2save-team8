@@ -1,0 +1,13 @@
+<%= simple_form_for @organization, wrapper: :horizontal_form, html: { class: 'form-horizontal' }, defaults: { input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group' }, label_html: { class: 'control-label col-sm-2' } } do |f| %>
+  <div class="box-body">
+    <%= f.input :name %>
+    <%= f.input :cnpj %>
+    <%= f.input :phone %>
+    <%= f.input :email %>
+    <%= f.input :service_kind, collection: Organization.service_kinds.keys %>
+    <%= f.input :about, as: :text %>
+    <div class="text-center">
+      <%= f.button :submit, class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

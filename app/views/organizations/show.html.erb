@@ -1,4 +1,37 @@
-<%= @organization.name %>
-<%= @organization.cnpj %>
-<%= @organization.phone %>
-<%= @organization.email %>
+<section class="content-header">
+  <h1>
+    <%= @organization.name %>
+  </h1>
+</section>
+<section class="content">
+  <div class="box box-primary">
+    <div class="box-header with-border">
+      <div class="box-title">
+        <h3>
+          Informations
+        </h3>
+      </div>
+    </div>
+    <div class="box-body">
+      <%= content_tag :p, @organization.about, class: 'lead' %>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th>Phone</th>
+            <th><%= @organization.phone %></th>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <th><%= @organization.email %></th>
+          </tr>
+          <tr>
+            <th>Service type</th>
+            <th><%= @organization.service_kind %></th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box-footer">
+    </div>
+  </div>
+</section>
