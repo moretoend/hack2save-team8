@@ -73,6 +73,8 @@ GEM
     dotenv-rails (2.2.1)
       dotenv (= 2.2.1)
       railties (>= 3.2, < 5.2)
+    enumerize (2.1.1)
+      activesupport (>= 3.2)
     erubi (1.6.0)
     execjs (2.7.0)
     factory_girl (4.8.0)
@@ -246,6 +248,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv-rails
+  enumerize
   factory_girl_rails
   font-awesome-rails
   jbuilder (~> 2.5)
