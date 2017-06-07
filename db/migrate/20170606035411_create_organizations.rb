@@ -5,6 +5,8 @@ class CreateOrganizations < ActiveRecord::Migration[5.1]
       t.string :cnpj, null: false
       t.string :phone, null: false
       t.string :email
+      t.string :about
+      t.integer :service_kind
 
       t.timestamps
     end
