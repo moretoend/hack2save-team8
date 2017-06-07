@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   extend Enumerize
+  include Gravtastic
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -7,6 +8,7 @@ class User < ApplicationRecord
   :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   enumerize :gender, in: [:male, :female]
+  gravtastic size: 120
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
