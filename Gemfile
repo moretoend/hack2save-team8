@@ -28,6 +28,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13.0'
   gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.6.0'
+  gem 'rails-controller-testing'
   gem 'selenium-webdriver'
   gem 'bootstrap-sass', '~> 3.3.0'
   gem 'shoulda-matchers', '~> 3.1.1'
