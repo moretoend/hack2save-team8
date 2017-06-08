@@ -20,6 +20,7 @@ gem 'puma', '~> 3.7'
 gem 'simple_form'
 gem 'rails', '~> 5.1.0'
 gem 'sass-rails', '~> 5.0'
+gem 'simple_form'
 gem 'turbolinks', '~> 5'
 
 group :development, :test do
@@ -28,6 +29,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.6.0'
   gem 'selenium-webdriver'
+  gem 'bootstrap-sass', '~> 3.3.0'
   gem 'shoulda-matchers', '~> 3.1.1'
 end
 

@@ -1,0 +1,22 @@
+<section class="content-header">
+  <h1 class="content-title">
+    Organizations
+  </h1>
+</section>
+<section class="content">
+  <% @organizations.each do |organization| %>
+    <div class="box box-primary">
+      <div class="box-header with-border">
+        <div class="box-title">
+          <%= content_tag :h3, organization.name %>
+        </div>
+      </div>
+      <div class="box-body">
+        <%= content_tag :p, organization.about, class: 'lead' %>
+      </div>
+      <div class="box-footer">
+        <%= link_to 'More info', organization, { class: 'btn btn-info pull-right' } %>
+      </div>
+    </div>
+  <% end %>
+</section>

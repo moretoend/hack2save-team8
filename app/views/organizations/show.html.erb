@@ -1,0 +1,30 @@
+<section class="content-header">
+  <h1>
+    <%= @organization.name %>
+  </h1>
+</section>
+<section class="content">
+  <div class="box box-primary">
+    <div class="box-header with-border">
+      <div class="box-title">
+        <h3>
+          Informations
+        </h3>
+      </div>
+    </div>
+    <div class="box-body">
+      <%= content_tag :p, @organization.about, class: 'lead' %>
+    </div>
+    <div class="box-footer">
+    </div>
+  </div>
+</section>
+
+<section class="content">
+  <div class="box box-default">
+    <%= @organization.phone %>
+    <%= @organization.email %>
+    <%= @organization.service_kind %>
+    <%= @organization.about %>
+  </div>
+</section>
