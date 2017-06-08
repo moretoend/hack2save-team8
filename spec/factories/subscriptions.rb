@@ -5,4 +5,12 @@ FactoryGirl.define do
     notes "MyText"
     status 1
   end
+
+  trait :with_user do
+    association :user, factory: :user
+  end
+
+  trait :with_job do
+    association :job, factory: :job
+  end
 end

@@ -5,4 +5,8 @@ FactoryGirl.define do
     phone "MyString"
     email "MyString"
   end
+
+  trait :with_responsible do
+    association :user, factory: :responsible
+  end
 end

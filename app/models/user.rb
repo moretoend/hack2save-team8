@@ -3,6 +3,7 @@ class User < ApplicationRecord
   include Gravtastic
 
   has_many :organizations
+  has_many :subscriptions
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
