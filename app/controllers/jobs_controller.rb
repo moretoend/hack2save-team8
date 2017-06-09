@@ -36,13 +36,13 @@ class JobsController < ApplicationController
 
 
   def save_job
-    redirect_to organization_job_path(@job.organization, @job) if @job.save
+    respond_with(@job.organization, @job) if @job.save
   end
 
 
   def destroy_job
     @job.destroy
-    redirect_to organization_jobs_path(@job.organization)
+    respond_with @job, location: organization_jobs_path(@job.organization)
   end
 
 
@@ -69,6 +69,11 @@ class JobsController < ApplicationController
 
 
   def job_scope
-    Organization.find(params[:organization_id]).jobs
+    load_organization.jobs
+  end
+
+
+  def load_organization
+    @organization = current_user.organizations.find(params[:organization_id])
   end
 end

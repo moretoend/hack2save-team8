@@ -1,7 +1,7 @@
 describe JobsController, type: :controller do
 
-  let(:organization) { create(:organization) }
   let(:user) { create(:user) }
+  let(:organization) { create(:organization, responsible: user) }
 
   before { sign_in user }
 
