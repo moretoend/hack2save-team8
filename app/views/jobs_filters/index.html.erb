@@ -7,7 +7,7 @@
 <section class="content">
   <% @jobs.each do |job| %>
     <%= render layout: "jobs/job", locals: { job: job } do %>
-      <%= button_tag "Subscribe", class: "btn btn-warning btn-flat" %>
+      <%= link_to "Subscribe", new_user_subscription_path(job_id: job), class: "btn btn-warning btn-flat" %>
     <% end %>
   <% end %>
 </section>
