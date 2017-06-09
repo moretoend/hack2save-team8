@@ -8,15 +8,20 @@ end
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'dotenv-rails'
+gem 'enumerize'
 gem 'font-awesome-rails'
+gem 'gravtastic'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'pg'
 gem 'puma', '~> 3.7'
+gem 'simple_form'
 gem 'rails', '~> 5.1.0'
+gem 'responders'
 gem 'sass-rails', '~> 5.0'
+gem 'simple_form'
 gem 'turbolinks', '~> 5'
 
 group :development, :test do
@@ -24,7 +29,9 @@ group :development, :test do
   gem 'capybara', '~> 2.13.0'
   gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.6.0'
+  gem 'rails-controller-testing'
   gem 'selenium-webdriver'
+  gem 'bootstrap-sass', '~> 3.3.0'
   gem 'shoulda-matchers', '~> 3.1.1'
 end
 
