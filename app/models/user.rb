@@ -10,6 +10,7 @@ class User < ApplicationRecord
   :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   has_many :organizations
+  has_many :jobs, through: :organizations
 
   enumerize :gender, in: [:male, :female]
   gravtastic size: 120
