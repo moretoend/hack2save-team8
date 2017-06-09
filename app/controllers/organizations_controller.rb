@@ -2,15 +2,15 @@ class OrganizationsController < ApplicationController
   before_action :find_organization_by_id, only: [:update, :edit, :show]
 
   def index
-    @organizations = Organization.all
+    @organizations = current_user.organizations.all
   end
 
   def new
-    @organization = Organization.new
+    @organization = current_user.organizations.build
   end
 
   def create
-    @organization = Organization.new(organization_params)
+    @organization = current_user.organizations.build(organization_params)
 
     if @organization.valid?
       @organization.save

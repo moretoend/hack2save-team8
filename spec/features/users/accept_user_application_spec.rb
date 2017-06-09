@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'User accept user application' do
   scenario 'successfully' do
     pending
-n   responsible = create(:responsible)
+    responsible = create(:responsible)
     organization = create(:organization, responsible: responsible)
     job = create(:job, organization: organization)
     user = create(:user)

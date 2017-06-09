@@ -1,6 +1,7 @@
 <section class="content-header">
   <h1 class="content-title">
     Organizations
+    <%= link_to "New Organization", new_organization_path, class: "btn btn-success btn-flat" %>
   </h1>
 </section>
 <section class="content">
@@ -15,7 +16,10 @@
         <%= content_tag :p, organization.about, class: 'lead' %>
       </div>
       <div class="box-footer">
-        <%= link_to 'More info', organization, { class: 'btn btn-info pull-right' } %>
+        <div class="btn-group pull-right">
+          <%= link_to 'More info', organization, class: 'btn btn-info btn-flat' %>
+          <%= link_to 'Jobs', organization_jobs_path(organization), class: 'btn btn-warning btn-flat' %>
+        </div>
       </div>
     </div>
   <% end %>
