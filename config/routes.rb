@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     resources :jobs
   end
 
-  resources :jobs_filter, only: :index
+  resources :jobs_filters, only: :index
 end

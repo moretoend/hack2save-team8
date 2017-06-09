@@ -1,4 +1,4 @@
-describe JobsFilterController, type: :controller do
+describe JobsFiltersController, type: :controller do
 
   let(:user) { create(:user) }
 
