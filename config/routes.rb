@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :organizations do
     resources :jobs
   end
+
+  resources :jobs_filter, only: :index
 end
