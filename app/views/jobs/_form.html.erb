@@ -9,10 +9,10 @@
     <%= f.input :places, input_html: { min: 1 } %>
   </div>
   <div class="col-lg-4 col-md-4 col-sm-4 col-sm-4">
-    <%= f.input :start_date, as: :string %>
+    <%= f.input :start_date, as: :string, input_html: { class: "act_as_datepicker" } %>
   </div>
   <div class="col-lg-4 col-md-4 col-sm-4 col-sm-4">
-    <%= f.input :end_date, as: :string %>
+    <%= f.input :end_date, as: :string, input_html: { class: "act_as_datepicker" } %>
   </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-sm-12">
     <%= f.input :description %>

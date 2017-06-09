@@ -1,0 +1,30 @@
+<section class="content-header">
+  <h1>
+    <h1>Subscriptions</h1>
+  </h1>
+</section>
+<section class="content">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <%= render layout: "subscriptions/subscription_box", locals: { type: :warning, title: "Pending", items: @pending } do |item| %>
+      <%= link_to "Accept", accept_subscription_path(item), class: "btn btn-success btn-xs btn-flat" %>
+      <%= link_to  "Decline", decline_subscription_path(item), class: "btn btn-danger btn-xs btn-flat" %>
+      <%= link_to  "Cancel", cancel_subscription_path(item), class: "btn btn-warning btn-xs btn-flat" %>
+    <% end %>
+  </div>
+
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <%= render layout: "subscriptions/subscription_box", locals: { type: :success, title: "Accepted", items: @accepted } do |item| %>
+      <%= link_to  "Cancel", cancel_subscription_path(item), class: "btn btn-warning btn-xs btn-flat" %>
+    <% end %>
+  </div>
+</section>
+
+<section class="content">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <%= render partial: "subscriptions/subscription_box", locals: { type: :danger, title: "Denied", items: @denied } %>
+  </div>
+
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <%= render partial: "subscriptions/subscription_box", locals: { type: :default, title: "Canceled", items: @canceled } %>
+  </div>
+</section>
