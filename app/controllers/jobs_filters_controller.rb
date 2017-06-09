@@ -1,6 +1,7 @@
 class JobsFiltersController < ApplicationController
   def index
-    @jobs = load_jobs.where("title LIKE :search OR kind LIKE :search", search: "%#{params[:search]}%")
+    search = params['search'].present? ? params['search']['text'] : ""
+    @jobs = load_jobs.where("title LIKE :search OR kind LIKE :search", search: "%#{search}%")
   end
 
 
