@@ -4,8 +4,16 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :organizations
 
-  resources :user, only:[] do
-    resources :subscriptions
+  namespace :user do
+    resources :subscriptions, only:[:index, :new, :create] do
+      member do
+        put 'abandon'
+      end
+    end
+  end
+
+  scope 'jobs' do
+    get 'search', to: 'jobs#search', as: 'jobs_search'
   end
 
   resources :organizations do

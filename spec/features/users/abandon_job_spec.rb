@@ -1,17 +1,18 @@
 require 'rails_helper'
 
-feature 'Responsible sees all subscriptions from a job' do
+feature 'abandon job' do
   scenario 'successfully' do
     responsible = create(:responsible)
     organization = create(:organization, responsible: responsible)
     job = create(:job, organization: organization)
     user = create(:user)
-    create(:subscription, user: user, job: job)
+    create(:subscription, job: job, user: user)
     login_as user
 
-    visit user_subscriptions_path user
-    within('.box-body') do
-      expect(page).to have_selector('tbody', count: user.subscriptions.count)
-    end
+    visit root_path
+    click_on 'Subscriptions'
+    click_on 'Abandon Job'
+
+    expect(page).to have_content('Job abandoned')
   end
 end

@@ -1,0 +1,74 @@
+<section class="content-header">
+  <h1 class="content-title">
+    User Subscriptions
+  </h1>
+</section>
+<section class="content">
+  <% @user.subscriptions.each do |subscription| %>
+    <div class="box box-primary subscription">
+      <div class="box-header with-border">
+        <div class="box-title">
+          <%= content_tag :h3, subscription.job.title %>
+        </div>
+      </div>
+      <div class="box-body">
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <th>Organization</th>
+              <th><%= subscription.job.organization.name %></th>
+            </tr>
+            <tr>
+              <th>Places</th>
+              <th>
+                <%= content_tag :p, subscription.job.places, class: 'lead' %>
+              </th>
+            </tr>
+            <tr>
+              <th>Description</th>
+              <th>
+                <%= content_tag :p, subscription.job.description, class: 'lead' %>
+              </th>
+            </tr>
+            <tr>
+              <th>Start Date</th>
+              <th>
+                <%= content_tag :p, subscription.job.start_date, class: 'lead' %>
+              </th>
+            </tr>
+            <tr>
+              <th>End Date</th>
+              <th>
+                <%= content_tag :p, subscription.job.end_date, class: 'lead' %>
+              </th>
+            </tr>
+            <tr>
+              <th>Status</th>
+              <th>
+                <% if subscription.applied? %>
+                  <div class="callout callout-info text-center">
+                    <%= content_tag :p, subscription.status.to_s.capitalize, class: 'lead' %>
+                  </div>
+                <% elsif subscription.dropped? %>
+                  <div class="callout callout-warning text-center">
+                    <%= content_tag :p, subscription.status.to_s.capitalize, class: 'lead' %>
+                  </div>
+                <% elsif subscription.finished? %>
+                  <div class="callout callout-success text-center">
+                    <%= content_tag :p, subscription.status.to_s.capitalize, class: 'lead' %>
+                  </div>
+                <% end %>
+              </th>
+            </tr>
+            <tr>
+              <th></th>
+              <th>
+                <%= link_to 'Abandon Job', abandon_user_subscription_path(subscription), method: :put, class: 'btn btn-warning' %>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  <% end %>
+</section>
