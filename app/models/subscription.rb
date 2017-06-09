@@ -4,6 +4,6 @@ class Subscription < ApplicationRecord
   belongs_to :user
   belongs_to :job
 
-  enumerize :status, in: [:pending, :accepted, :denied, :canceled, :ended ], scope: true, default: :pending
+  enumerize :status, in: [:pending, :accepted, :denied, :canceled, :closed ], scope: true, default: :pending
 
 end

@@ -6,6 +6,7 @@ class SubscriptionsController < ApplicationController
     @accepted = Subscription.with_status(:accepted).where(job_id: params[:job_id])
     @denied = Subscription.with_status(:denied).where(job_id: params[:job_id])
     @canceled = Subscription.with_status(:canceled).where(job_id: params[:job_id])
+    @closed = Subscription.with_status(:closed).where(job_id: params[:job_id])
   end
 
   def show
@@ -23,11 +24,19 @@ class SubscriptionsController < ApplicationController
     redirect_to organization_job_subscriptions_url(@subscriptions.job.organization,@subscriptions.job) , notice: "Subscription updated"
   end
 
-  def destroy
+  def close
     @subscriptions = Subscription.find(params[:id])
-    @subscriptions.update(status: :cancel)
+    @subscriptions.update(status: :closed)
+    redirect_to organization_job_subscriptions_url(@subscriptions.job.organization,@subscriptions.job) , notice: "Subscription was closed"
+  end
+
+  def cancel
+    @subscriptions = Subscription.find(params[:id])
+    @subscriptions.update(status: :canceled)
     redirect_to organization_job_subscriptions_url(@subscriptions.job.organization,@subscriptions.job) , notice: "Subscription updated"
   end
+
+
 
   #TODO Set params permit
   private

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       get :accept
       get :decline
       get :cancel
+      get :close
     end
   end
 

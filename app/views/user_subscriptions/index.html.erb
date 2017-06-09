@@ -61,6 +61,10 @@
                   <div class="callout callout bg-purple text-center">
                     <%= content_tag :p, subscription.status_text, class: 'lead' %>
                   </div>
+                <% elsif subscription.status.closed? %>
+                  <div class="callout callout callout-info text-center">
+                    <%= content_tag :p, subscription.status_text, class: 'lead' %>
+                  </div>
                 <% end %>
               </th>
             </tr>

@@ -19,5 +19,7 @@
 
 
 $(document).ready(function(){
-  $(".act_as_datepicker").datepicker();
+  $(".act_as_datepicker").datepicker({
+    format: "dd/mm/yyyy"
+  });
 });
