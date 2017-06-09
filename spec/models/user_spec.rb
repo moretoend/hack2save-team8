@@ -11,6 +11,7 @@ RSpec.describe User, type: :model do
   it { is_expected.to have_db_column :gender }
   it { is_expected.to enumerize(:gender).in(:male, :female) }
 
+  it { is_expected.to have_many :subscriptions }
   it { is_expected.to have_many :organizations }
   it { is_expected.to have_many(:jobs).through(:organizations) }
 
