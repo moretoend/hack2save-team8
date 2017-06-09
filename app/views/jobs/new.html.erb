@@ -1,0 +1,29 @@
+<section class="content-header">
+  <h1>Organization Jobs</h1>
+</section>
+
+<section class="content">
+  <div class="col-lg-8 col-md-8 col-xs-12 col-sm-12">
+    <div class="box box-success">
+      <div class="box-header">
+        <h4>Add a new Job</h4>
+      </div>
+      <div class="box-body">
+        <%= render "form" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4 col-md-4">
+    <div class="box box-info">
+      <div class="box-header">
+        <h4>Organization Info</h4>
+      </div>
+      <div class="box-body">
+        <b>Name: </b><%= @job.organization.name %><br /><br />
+        <b>Phone: </b><%= @job.organization.phone %><br /><br />
+        <b>Email: </b><%= @job.organization.email %><br /><br />
+      </div>
+    </div>
+  </div>
+</section>

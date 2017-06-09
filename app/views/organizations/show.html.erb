@@ -32,15 +32,11 @@
       </table>
     </div>
     <div class="box-footer">
+      <div class="btn-group">
+        <%= link_to "Edit", edit_organization_path(@organization), class: "btn btn-primary btn-flat" %>
+        <%= link_to 'Jobs', organization_jobs_path(@organization), class: 'btn btn-warning btn-flat' %>
+        <%= link_to "List All", organizations_path, class: "btn btn-default btn-flat" %>
+      </div>
     </div>
-  </div>
-</section>
-
-<section class="content">
-  <div class="box box-default">
-    <%= @organization.phone %>
-    <%= @organization.email %>
-    <%= @organization.service_kind %>
-    <%= @organization.about %>
   </div>
 </section>

@@ -1,0 +1,35 @@
+<section class="content-header">
+  <h1>
+    Organization Jobs
+    <%= link_to "New Job", new_organization_job_path(@organization), class: "btn btn-success btn-flat" %>
+  </h1>
+</section>
+
+<section class="content">
+  <% @jobs.each do |job| %>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+      <div class="box box-solid">
+        <div class="box-header">
+          <h4><%= job.title %></h4>
+        </div>
+        <div class="box-body">
+          <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+            <b>Kind:</b> <%= job.kind %>
+            <br />
+            <span class="label label-warning"><%= job.places %> places</span>
+            From <%= job.start_date %> to <%= job.end_date %>
+            <br />
+            <%= job.description %><br />
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <div class="btn-group-vertical pull-right">
+              <%= link_to "Show", [job.organization, job], class: "btn btn-default btn-xs btn-flat" %>
+              <%= link_to "Edit", edit_organization_job_path(job.organization, job), class: "btn btn-primary btn-xs btn-flat" %>
+              <%= link_to "Delete", [job.organization, job], data: { method: :delete }, class: "btn btn-danger btn-xs btn-flat" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</section>

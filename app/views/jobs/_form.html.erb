@@ -1,0 +1,26 @@
+<%= simple_form_for [@job.organization, @job] do |f| %>
+  <div class="col-lg-6 col-md-6 col-sm-6 col-sm-6">
+    <%= f.input :title %>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6 col-sm-6">
+    <%= f.input :kind %>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-4 col-sm-4">
+    <%= f.input :places, input_html: { min: 1 } %>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-4 col-sm-4">
+    <%= f.input :start_date, as: :string %>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-4 col-sm-4">
+    <%= f.input :end_date, as: :string %>
+  </div>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-sm-12">
+    <%= f.input :description %>
+  </div>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-sm-12">
+    <div class="btn-group pull-right">
+      <%= link_to "Cancel", organization_jobs_path(@job.organization), class: "btn btn-default btn-flat" %>
+      <%= f.submit class: "btn btn-primary btn-flat" %>
+    </div>
+  </div>
+<% end %>
