@@ -1,7 +1,9 @@
 class Subscription < ApplicationRecord
+  extend Enumerize
+
   belongs_to :user
   belongs_to :job
 
-  enum status: [:pending, :accept, :declined, :cancel, :ended ]
+  enumerize :status, in: [:pending, :accepted, :denied, :canceled, :ended ], scope: true, default: :pending
 
 end

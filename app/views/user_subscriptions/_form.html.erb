@@ -1,0 +1,11 @@
+<%= simple_form_for(@subscription, url: user_subscriptions_path(@subscription, user_id: current_user.id, job_id: @job.id)) do |f| %>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-sm-12">
+    <%= f.input :notes, as: :text, label: 'Cover Letter' %>
+  </div>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-sm-12">
+    <div class="btn-group pull-right">
+      <%= link_to "Cancel", :root, class: "btn btn-default btn-flat" %>
+      <%= f.submit 'Confirm Application', class: "btn btn-primary btn-flat" %>
+    </div>
+  </div>
+<% end %>

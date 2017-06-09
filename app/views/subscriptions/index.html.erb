@@ -4,47 +4,27 @@
   </h1>
 </section>
 <section class="content">
-  <div class="box box-primary">
-    <div class="box-header with-border">
-      <div class="box-title">
-        <h3>
-          Pendings
-        </h3>
-      </div>
-    </div>
-    <div class="box-body">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Status</th>
-            <th></th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-      <% @pending.each do |sub| %>
-        <tbody>
-          <tr>
-            <th><%= sub.user.email %></th>
-            <th><%= sub.status %></th>
-            <th><%= link_to "Accept", "/subscriptions/accept/#{sub.id}/#{sub.user_id}", class: "btn btn-default btn-flat" %></th>
-            <th><%= link_to  "Decline", "/subscriptions/decline/#{sub.id}/#{sub.user_id}", class: "btn btn-default btn-flat" %></th>
-            <th><%= link_to  "Destroy", "/subscriptions/destroy/#{sub.id}/#{sub.user_id}", class: "btn btn-default btn-flat" %></th>
-          </tr>
-        </tbody>
-      <% end %>
-      </table>
-    </div>
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <%= render layout: "subscriptions/subscription_box", locals: { type: :warning, title: "Pending", items: @pending } do |item| %>
+      <%= link_to "Accept", accept_subscription_path(item), class: "btn btn-success btn-xs btn-flat" %>
+      <%= link_to  "Decline", decline_subscription_path(item), class: "btn btn-danger btn-xs btn-flat" %>
+      <%= link_to  "Cancel", cancel_subscription_path(item), class: "btn btn-warning btn-xs btn-flat" %>
+    <% end %>
   </div>
 
-  <div class="box box-primary">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <%= render layout: "subscriptions/subscription_box", locals: { type: :success, title: "Accepted", items: @accepted } do |item| %>
+      <%= link_to  "Cancel", cancel_subscription_path(item), class: "btn btn-warning btn-xs btn-flat" %>
+    <% end %>
+  </div>
+</section>
 
+<section class="content">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <%= render partial: "subscriptions/subscription_box", locals: { type: :danger, title: "Denied", items: @denied } %>
+  </div>
 
-    <div class="box-footer">
-      <div class="btn-group">
-        <%= link_to "Job",  organization_job_path(params[:organization_id], params[:job_id]), class: "btn btn-default btn-flat" %>
-      </div>
-    </div>
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <%= render partial: "subscriptions/subscription_box", locals: { type: :default, title: "Canceled", items: @canceled } %>
   </div>
 </section>
