@@ -28,4 +28,7 @@ Rails.application.routes.draw do
     put :abandon, on: :member
   end
 
+  resources :user_reviews, only: [:edit, :update]
+  resources :organization_reviews, only: [:edit, :update]
+
 end

@@ -15,7 +15,7 @@
   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
     <%= render layout: "subscriptions/subscription_box", locals: { type: :success, title: "Accepted", items: @accepted } do |item| %>
       <%= link_to  "Cancel", cancel_subscription_path(item), class: "btn btn-warning btn-xs btn-flat" %>
-      <%= link_to  "Closed", close_subscription_path(item), class: "btn btn-info btn-xs btn-flat" %>
+      <%= link_to  "Close", close_subscription_path(item), class: "btn btn-info btn-xs btn-flat" %>
     <% end %>
   </div>
 </section>
@@ -32,6 +32,8 @@
 
 <section class="content">
   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-    <%= render partial: "subscriptions/subscription_box", locals: { type: :info, title: "Closed", items: @closed } %>
+    <%= render layout: "subscriptions/subscription_box", locals: { type: :info, title: "Closed", items: @closed } do |item| %>
+      <%= link_to  "Review", edit_user_review_path(item.review), class: "btn btn-success btn-xs btn-flat" %>
+    <% end %>
   </div>
 </section>

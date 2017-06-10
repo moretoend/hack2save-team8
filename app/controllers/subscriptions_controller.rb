@@ -27,6 +27,7 @@ class SubscriptionsController < ApplicationController
   def close
     @subscriptions = Subscription.find(params[:id])
     @subscriptions.update(status: :closed)
+    @subscriptions.create_review
     redirect_to organization_job_subscriptions_url(@subscriptions.job.organization,@subscriptions.job) , notice: "Subscription was closed"
   end
 
