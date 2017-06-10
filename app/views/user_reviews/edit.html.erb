@@ -12,7 +12,11 @@
           <h4>Review</h4>
         </div>
         <div class="box-body">
-          <%= f.input :volunteer_grade, input_html: { min: 0, max: 5 } %>
+
+          <div class="form-group">
+            <label class="label-control">Volunteer Grade</label>
+            <%= f.hidden_field :volunteer_grade, class: "rating" %>
+          </div>
           <%= f.input :volunteer_notes %>
         </div>
       </div>
