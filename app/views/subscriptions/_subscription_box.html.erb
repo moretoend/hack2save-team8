@@ -15,7 +15,7 @@
       <tbody>
         <% items.each do |subscription| %>
           <tr>
-            <td><%= subscription.user.email %></td>
+            <td><%= subscription.user.fullname %></td>
             <td>
               <div class="btn-group-vertical pull-right">
                 <%= yield(subscription) %>
