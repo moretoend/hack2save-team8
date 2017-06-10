@@ -1,0 +1,29 @@
+<div class="box box-<%= type %>">
+  <div class="box-header with-border">
+    <div class="box-title">
+      <h3><%= title %></h3>
+    </div>
+  </div>
+  <div class="box-body">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% items.each do |subscription| %>
+          <tr>
+            <td><%= subscription.user.fullname %></td>
+            <td>
+              <div class="btn-group-vertical pull-right">
+                <%= yield(subscription) %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

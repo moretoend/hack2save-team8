@@ -11,6 +11,15 @@
 // about supported directives.
 //
 //= require jquery
+//= require datepicker
 //= require admin_lte
 //= require rails-ujs
 //= require_tree .
+//= require_self
+
+
+$(document).ready(function(){
+  $(".act_as_datepicker").datepicker({
+    format: "dd/mm/yyyy"
+  });
+});

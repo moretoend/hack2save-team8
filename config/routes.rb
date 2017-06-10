@@ -9,8 +9,26 @@ Rails.application.routes.draw do
 
   resources :organizations do
     resources :jobs do
-      resources :subscriptions
+      resources :subscriptions, only: :index
     end
   end
+
+  resources :subscriptions, only: [] do
+    member do
+      get :accept
+      get :decline
+      get :cancel
+      get :close
+    end
+  end
+
+  resources :jobs_filters, only: :index
+
+  resources :user_subscriptions, only: [:index, :new, :create] do
+    put :abandon, on: :member
+  end
+
+  resources :user_reviews, only: [:edit, :update]
+  resources :organization_reviews, only: [:edit, :update]
 
 end

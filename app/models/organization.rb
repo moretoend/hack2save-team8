@@ -4,4 +4,8 @@ class Organization < ApplicationRecord
 
   enum service_kind: [ :industry, :commerce, :service ]
   validates :name, :cnpj, :phone, presence: true
+
+  has_one :address, dependent: :destroy
+  accepts_nested_attributes_for :address
+  validates_associated :address
 end

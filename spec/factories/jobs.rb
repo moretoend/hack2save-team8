@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :job do
-    title "Job 01"
-    kind "War"
+    sequence(:title) { |n| "Job #{n}" }
+    kind "Health care"
     places 2
     description "Help families on Iraq war"
     start_date "2017-06-06"

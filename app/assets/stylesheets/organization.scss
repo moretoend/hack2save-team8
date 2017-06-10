@@ -10,10 +10,36 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require datepicker
  *= require admin_lte
+ *= require icheck
  *= require_tree .
  *= require_self
  */
 
- @import "font-awesome"
+.organization-info {
+  font-size: 1.1em;
+  font-weight: 300;
+
+  .container {
+    margin: 0;
+    padding: 0;
+  }
+
+  &.-name-title {
+    font-weight: 500;
+    font-size: 1.5em;
+  }
+
+  &.-about {
+    font-weight: 400;
+    font-size: 1.1em;
+  }
+
+  &.-address {
+    margin-top: 90px;
+
+    .header {
+      font-weight: 400;
+    }
+  }
+}
