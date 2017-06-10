@@ -1,11 +1,11 @@
 FactoryGirl.define do
-  factory :address do
+  factory :organization_address, class: Organization::Address do
     country 'Country'
+    state 'State'
     city 'City'
     neighborhood 'Neighborhood'
     street 'Street'
     number '100'
-
-    association :addressable, factory: :organization
+    association :organization, strategy: :build
   end
 end
