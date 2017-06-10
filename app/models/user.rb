@@ -27,7 +27,7 @@ class User < ApplicationRecord
 
 
   def valid_profile?
-    self.fullname.present? && self.fullname.document_number? && self.gender.present?
+    self.fullname.present? && self.document_number? && self.gender.present?
   end
 
 
@@ -45,5 +45,11 @@ class User < ApplicationRecord
 
   def canceled_subscriptions
     self.subscriptions.with_status(:canceled).count
+  end
+
+  def avg_grade
+    sum = self.subscriptions.joins(:review).sum("reviews.volunteer_grade")
+    subscriptions_count = self.subscriptions.with_status(:closed).count
+    sum / subscriptions_count
   end
 end
