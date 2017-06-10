@@ -30,4 +30,20 @@ class User < ApplicationRecord
     self.fullname.present? && self.fullname.document_number? && self.gender.present?
   end
 
+
+  def accept_subscriptions
+    self.subscriptions.with_status(:accepted).count
+  end
+
+  def denied_subscriptions
+    self.subscriptions.with_status(:accepted).count
+  end
+
+  def closed_subscriptions
+    self.subscriptions.with_status(:accepted).count
+  end
+
+  def canceled_subscriptions
+    self.subscriptions.with_status(:canceled).count
+  end
 end

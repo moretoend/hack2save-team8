@@ -1,0 +1,36 @@
+<aside class="col-lg-3 col-md-3 col-sm-5 col-xs-12 pull-left">
+  <div class="box box-primary">
+    <div class="box-body text-center">
+      <%= image_tag @user.gravatar_url %>
+      <br />
+      <small>Powered by <a href="https://pt.gravatar.com/" target="_blank">Gravatar</a></small>
+    </div>
+  </div>
+</aside>
+
+<div class="col-lg-1 col-md-1 col-sm-1"></div>
+
+<div class="col-lg-9 col-md-9 col-sm-7 col-xs-12">
+  <div class="box box-default">
+    <div class="box-body">
+      <br />
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <b>Email: </b><%= @user.email %>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <b>Name: </b><%= @user.fullname %>
+      </div>
+      <br /><br />
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <b>Gender: </b><%= @user.gender_text %>
+      </div>
+      <br /><br />
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <span class="badge bg-olive"><%= @user.accept_subscriptions %> accepted</span>
+        <span class="badge bg-green"><%= @user.closed_subscriptions %> closed</span>
+        <span class="badge bg-red"><%= @user.denied_subscriptions %> denied</span>
+        <span class="badge bg-orange"><%= @user.canceled_subscriptions %> canceled</span>
+      </div>
+    </div>
+  </div>
+</div>
