@@ -30,25 +30,27 @@
           <%= "Email: #{@organization.email}" %>
         </div>
 
-        <div class="organization-info -address">
-          <p class="header">Address</p>
+        <% if @organization.address.present? %>
+          <div class="organization-info -address">
+            <p class="header">Address</p>
 
-          <div class="col-xs-12">
-            <div class="-street">
-              <%= "#{@organization.address.street}, #{@organization.address.number}" %>
-              <%= ", compl.#{@organization.address.complement}" if @organization.address.complement.present? %>
-            </div>
+            <div class="col-xs-12">
+              <div class="-street">
+                <%= "#{@organization.address.street}, #{@organization.address.number}" %>
+                <%= ", compl.#{@organization.address.complement}" if @organization.address.complement.present? %>
+              </div>
 
-            <div class="-region">
-              <%= "#{@organization.address.city}/#{@organization.address.state} - Bairro: #{@organization.address.neighborhood}" %>
-            </div>
+              <div class="-region">
+                <%= "#{@organization.address.city}/#{@organization.address.state} - Bairro: #{@organization.address.neighborhood}" %>
+              </div>
 
-            <div class="-zipcode">
-              <%= "#{@organization.address.country}" %>
-              <%= "- CEP: #{@organization.address.zipcode}" if @organization.address.zipcode.present? %>
+              <div class="-zipcode">
+                <%= "#{@organization.address.country}" %>
+                <%= "- CEP: #{@organization.address.zipcode}" if @organization.address.zipcode.present? %>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
 
@@ -61,4 +63,3 @@
     </div>
   </div>
 </section>
-
