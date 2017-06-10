@@ -1,17 +1,15 @@
 class User < ApplicationRecord
   extend Enumerize
   include Gravtastic
-
-  has_many :organizations
-
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   has_many :subscriptions
-  has_many :organizations
+  has_many :organizations, dependent: :destroy
   has_many :jobs, through: :organizations
+  has_one :address, dependent: :destroy
+  accepts_nested_attributes_for :address
+  validates_associated :address
 
   enumerize :gender, in: [:male, :female]
   gravtastic size: 120
