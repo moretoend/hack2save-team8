@@ -25,4 +25,9 @@ class User < ApplicationRecord
     end
   end
 
+
+  def valid_profile?
+    self.fullname.present? && self.fullname.document_number? && self.gender.present?
+  end
+
 end

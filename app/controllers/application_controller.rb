@@ -26,6 +26,15 @@ class ApplicationController < ActionController::Base
   private
 
 
+  def validate_user_profile!
+    unless current_user.valid_profile?
+      flash[:warning] = "You must complete your profile first"
+      redirect_back(fallback_location: root_path)
+      return
+    end
+  end
+
+
   def define_layout
     return "application" if user_signed_in?
     return "login"

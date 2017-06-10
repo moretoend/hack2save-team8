@@ -6,10 +6,12 @@ class OrganizationsController < ApplicationController
   end
 
   def new
+    validate_user_profile!
     @organization = current_user.organizations.build
   end
 
   def create
+    validate_user_profile!
     @organization = current_user.organizations.build(organization_params)
 
     if @organization.valid?
