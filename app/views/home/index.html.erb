@@ -6,30 +6,8 @@
 
 <section class="content">
   <% @lastJobs.each do |job| %>
-    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-      <div class="box box-solid">
-        <div class="box-header">
-          <h4><%= job.title %></h4>
-        </div>
-        <div class="box-body">
-          <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-            <b>Kind:</b> <%= job.kind %>
-            <br />
-            <span class="label label-warning"><%= job.places %> places</span>
-            From <%= job.start_date %> to <%= job.end_date %>
-            <br />
-            <%= job.description %><br />
-          </div>
-          <div class="btn-group pull-right">
-            <%= link_to 'Voluntariar', "#", class: 'btn btn-info btn-flat' %>
-          </div>
-          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-            <div class="btn-group-vertical pull-right">
-              <% will_paginate @lastJobs %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <%= render layout: "jobs/job", locals: { job: job } do %>
+      <%= link_to "Subscribe", new_user_subscription_path(job_id: job), class: "btn btn-warning btn-flat" %>
+    <% end %>
   <% end %>
 </section>
