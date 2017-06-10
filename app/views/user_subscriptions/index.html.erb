@@ -61,17 +61,23 @@
                   <div class="callout callout bg-purple text-center">
                     <%= content_tag :p, subscription.status_text, class: 'lead' %>
                   </div>
+                <% elsif subscription.status.closed? %>
+                  <div class="callout callout callout-info text-center">
+                    <%= content_tag :p, subscription.status_text, class: 'lead' %>
+                  </div>
                 <% end %>
               </th>
             </tr>
-            <% if subscription.status.pending? || subscription.status.accepted? %>
-              <tr>
-                <th></th>
-                <th>
+            <tr>
+              <td></td>
+              <td>
+                <% if subscription.status.pending? || subscription.status.accepted? %>
                   <%= link_to 'Abandon Job', abandon_user_subscription_path(subscription), method: :put, class: 'btn btn-warning' %>
-                </th>
-              </tr>
-            <% end %>
+                <% elsif subscription.status.closed? %>
+                  <%= link_to 'Organization Review', edit_organization_review_path(subscription.review), class: "btn btn-md btn-flat btn-success" %>
+                <% end %>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>

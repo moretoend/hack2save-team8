@@ -5,11 +5,13 @@ class UserSubscriptionsController < ApplicationController
   end
 
   def new
+    validate_user_profile!
     @subscription = current_user.subscriptions.build
     @job = Job.find_by(id: params[:job_id])
   end
 
   def create
+    validate_user_profile!
     @subscription = current_user.subscriptions.build(subscription_params)
     @subscription.job = Job.find_by(id: params[:job_id])
     if @subscription.save

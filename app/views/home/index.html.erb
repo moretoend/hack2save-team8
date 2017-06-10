@@ -1,1 +1,13 @@
-<h2>Home</h2>
+<section class="content-header">
+  <h1>
+    Last Jobs
+  </h1>
+</section>
+
+<section class="content">
+  <% @lastJobs.each do |job| %>
+    <%= render layout: "jobs/job", locals: { job: job } do %>
+      <%= link_to "Subscribe", new_user_subscription_path(job_id: job), class: "btn btn-warning btn-flat" %>
+    <% end %>
+  <% end %>
+</section>

@@ -15,20 +15,68 @@
     <div class="box box-default">
       <div class="box-body">
         <%= f.error_notification %>
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-          <%= f.input :email %>
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <%= f.input :email %>
+          </div>
+
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <%= f.input :fullname %>
+          </div>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-          <%= f.input :fullname %>
+
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <%= f.input :document_number %>
+          </div>
+
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <%= f.input :gender, as: :radio_buttons %>
+          </div>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-          <%= f.input :document_number %>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-          <%= f.input :gender, as: :radio_buttons %>
-        </div>
+
+        <%= f.simple_fields_for :address do |address_f| %>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <%= address_f.input :country, as: :string %>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <%= address_f.input :zipcode %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+              <%= address_f.input :state %>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+              <%= address_f.input :city %>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <%= address_f.input :neighborhood %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12">
+              <%= address_f.input :street %>
+            </div>
+
+            <div class="col-lg-2 col-md-6 col-sm-12 col-xs-12">
+              <%= address_f.input :number %>
+            </div>
+
+            <div class="col-lg-2 col-md-6 col-sm-12 col-xs-12">
+              <%= address_f.input :complement %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
+
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <%= f.submit "Save Profile", class: "btn btn-primary btn-flat pull-right" %>
     </div>

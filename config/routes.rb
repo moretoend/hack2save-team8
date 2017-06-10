@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'home#index'
 
+  resources :users, only: :show
+
   resources :organizations do
     resources :jobs do
       resources :subscriptions, only: :index
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
       get :accept
       get :decline
       get :cancel
+      get :close
     end
   end
 
@@ -26,5 +29,8 @@ Rails.application.routes.draw do
   resources :user_subscriptions, only: [:index, :new, :create] do
     put :abandon, on: :member
   end
+
+  resources :user_reviews, only: [:edit, :update]
+  resources :organization_reviews, only: [:edit, :update]
 
 end

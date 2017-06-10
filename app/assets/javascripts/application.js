@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require rating
 //= require datepicker
 //= require admin_lte
 //= require rails-ujs
@@ -19,5 +20,14 @@
 
 
 $(document).ready(function(){
-  $(".act_as_datepicker").datepicker();
+  $(".act_as_datepicker").datepicker({
+    format: "dd/mm/yyyy"
+  });
+
+  $(".rating").rating({
+    start: 0,
+    stop: 5,
+    empty: 'fa fa-icon fa-start-o',
+    filled: 'fa fa-icon fa-start'
+  });
 });

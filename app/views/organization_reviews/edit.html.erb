@@ -1,0 +1,39 @@
+<section class="content-header">
+  <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+    <h1 class="content-title">Organization Review</h1>
+  </div>
+</section>
+
+<section class="content">
+  <div class="col-lg-8 col-md-8 col-xs-12 col-sm-12">
+    <%= simple_form_for @review, url: organization_review_path(@review) do |f| %>
+      <div class="box box-success">
+        <div class="box-header">
+          <h4>Review</h4>
+        </div>
+        <div class="box-body">
+          <div class="form-group">
+            <label class="label-control">Volunteer Grade</label>
+            <%= f.hidden_field :organization_grade, class: "rating" %>
+          </div>
+          <%= f.input :organization_notes %>
+        </div>
+      </div>
+      <%= f.submit class: "btn btn-info btn-flat" %>
+    <% end %>
+  </div>
+
+  <div class="col-lg-4 col-md-4">
+    <div class="box box-info">
+      <div class="box-header">
+        <h4>Info</h4>
+      </div>
+      <div class="box-body">
+        <b>Name: </b><%= @review.subscription.job.organization.name %><br /><br />
+        <b>Kind of Service: </b><%= @review.subscription.job.organization.service_kind %><br /><br />
+        <b>Start date: </b><%= @review.subscription.job.start_date %><br /><br />
+        <b>End date: </b><%= @review.subscription.job.end_date %><br />
+      </div>
+    </div>
+  </div>
+</section>
