@@ -4,4 +4,12 @@ class OrganizationReviewsController < ReviewsController
     load_review
   end
 
+
+  private
+
+
+  def update_location
+    user_subscriptions_path
+  end
+
 end
